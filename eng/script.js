@@ -229,6 +229,7 @@ function goBackToMain() {
     correct = 0;
     currentSound = 0;
     errors = 0;
+    cards.sound = {}
 }
 
 function shuffle(squareNumberay) {
