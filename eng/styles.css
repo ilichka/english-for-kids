@@ -415,6 +415,10 @@ nav {
     background-image: url(../assets/img/star-win.svg);
 }
 
+.star-error {
+    background-image: url(../assets/img/star.svg);
+}
+
 .failure {
     width: 99vw;
     height: 100vh;
