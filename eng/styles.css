@@ -392,7 +392,7 @@ nav {
 .repeat {
     width: 65px;
     font-size: 0;
-    background-image: url(/assets/img/repeat.svg),linear-gradient(40deg,#ffd86f,#fc6262);
+    background-image: url(../assets/img/repeat.svg),linear-gradient(40deg,#ffd86f,#fc6262);
     border-radius: 50%;
     background-repeat: no-repeat;
     background-size: 32px 32px,cover;
@@ -412,13 +412,32 @@ nav {
 }
 
 .star-success {
-    background-image: url(/assets/img/star-win.svg);
+    background-image: url(../assets/img/star-win.svg);
 }
 
 .failure {
-    background-image: url(/assets/img/failure.jpg);
+    width: 99vw;
+    height: 100vh;
+    background-image: url(../assets/img/failure.jpg);
+    background-repeat: no-repeat;
+    background-size: 40% 55%,cover;
+    background-position: 50%;
 }
 
 .success {
-    background-image: url(/assets/img/success.jpg);
+    width: 99vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: 40% 55%,cover;
+    background-position: 50%;
+    background-image: url(../assets/img/success.jpg);
+}
+
+.text {
+    justify-content: center;
+}
+
+.zero {
+    width: 0;
+    height: 0;
 }
