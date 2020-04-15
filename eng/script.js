@@ -16,6 +16,9 @@ document.querySelector('.one').addEventListener('click', () => {
 
 //play or train switcher
 document.querySelector('.switch-input').addEventListener('click', () => {
+    if (document.querySelector('.switch-label').classList.contains('switch-label-play')) {
+        defaultRemove();
+    }
     document.querySelector('.switch-label').classList.toggle('switch-label-play');
     document.querySelector('.switch-handle').classList.toggle('switch-handle-active');
 });
@@ -170,6 +173,9 @@ document.querySelector('.btn').addEventListener('click', () => {
         }
         shuffle(sound);
         document.querySelector('.btn').classList.add('repeat');
+        document.querySelectorAll('.front').forEach(key => {
+            key.classList.add('front-play')
+        })
         gameStart = false;
         console.log(sound);
     }
@@ -180,48 +186,73 @@ document.querySelectorAll('.front').forEach(key => {
     let star;
     star = document.createElement('div');
     key.addEventListener('click', (e) => {
-        console.log(e.currentTarget.getAttribute('num'));
-        console.log(cards.sound[sound[0]]);
-        if (e.currentTarget.getAttribute('num') === cards.sound[sound[currentSound]]) {
-            e.currentTarget.classList.add('inactive');
-            document.querySelector('.sound').src = sound[currentSound + 1];
-            document.querySelector('.soundEffect').src = 'assets/audio/correct.mp3';
-            star.classList.add('star-success');
-            document.querySelector('.rating').appendChild(star);
-            currentSound++;
-            correct++;
-            if(correct===8) {
-                goBackToMain();
+        if (e.currentTarget.classList.contains('front-play')) {
+            console.log(e.currentTarget.getAttribute('num'));
+            console.log(cards.sound[sound[0]]);
+            if (e.currentTarget.getAttribute('num') === cards.sound[sound[currentSound]]) {
+                e.currentTarget.classList.add('inactive');
+                e.currentTarget.classList.remove('front-play');
+                document.querySelector('.sound').src = sound[currentSound + 1];
+                document.querySelector('.soundEffect').src = 'assets/audio/correct.mp3';
+                star.classList.add('star-success');
+                document.querySelector('.rating').appendChild(star);
+                currentSound++;
+                correct++;
+                if (correct === 8) {
+                    goBackToMain();
+                }
+            } else {
+                document.querySelector('.soundEffect').src = 'assets/audio/error.mp3'
+                star.classList.add('star-error');
+                document.querySelector('.rating').appendChild(star);
+                errors++;
             }
-        } else {
-            document.querySelector('.soundEffect').src = 'assets/audio/error.mp3'
-            star.classList.add('star-error');
-            document.querySelector('.rating').appendChild(star);
-            errors++;
         }
     })
 });
 
 function goBackToMain() {
-    if(errors===0) {
-        document.body.classList.add('success')
-        setTimeout(()=>{document.body.classList.remove('success')},3000)
+    if (errors === 0) {
+        document.body.classList.add('success');
+        setTimeout(() => {
+            document.body.classList.remove('success')
+        }, 3000);
+        document.querySelector('.rating').innerHTML = 'win!';
     } else {
-        document.body.classList.add('failure')
-        setTimeout(()=>{document.body.classList.remove('failure')},3000)
+        document.body.classList.add('failure');
+        setTimeout(() => {
+            document.body.classList.remove('failure')
+        }, 3000)
+        document.querySelector('.rating').innerHTML = `${errors} errors`;
     }
-    document.querySelectorAll('.inactive').forEach(key=>{
+    setTimeout(() => {
+        document.querySelector('.rating').innerHTML = ''
+    }, 3000)
+    setTimeout(() => {
+        defaultRemove();
+        document.querySelector('.active').classList.remove('active');
+        document.querySelector('.header-item').classList.add('active');
+        document.querySelector('.secondary-container').classList.add('none');
+        document.querySelector('.main-container').classList.remove('none');
+
+        document.querySelectorAll('.front').forEach(key => {
+            key.classList.toggle('front-play')
+        });
+    }, 3000)
+}
+
+function defaultRemove() {
+    document.querySelectorAll('.front').forEach(key => {
+        key.classList.remove('front-play')
+    })
+    document.querySelectorAll('.inactive').forEach(key => {
         key.classList.remove('inactive');
     })
-    document.querySelector('.active').classList.remove('active');
-    document.querySelector('.header-item').classList.add('active');
-    document.querySelector('.secondary-container').classList.add('none');
-    document.querySelector('.main-container').classList.remove('none');
     document.querySelector('.btn').classList.remove('repeat');
-    document.querySelectorAll('.star-success').forEach(key=>{
+    document.querySelectorAll('.star-success').forEach(key => {
         key.remove();
     });
-    document.querySelectorAll('.star-error').forEach(key=>{
+    document.querySelectorAll('.star-error').forEach(key => {
         key.remove();
     });
     sound = [];
