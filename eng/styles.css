@@ -249,8 +249,16 @@ nav {
 }
 
 .rating {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
     height: 40px;
-    width: 1350px;
+    overflow-x: hidden;
+    line-height: 36px;
+    font-size: 36px;
+    color: #fc6262;
 }
 
 .none {
@@ -379,4 +387,38 @@ nav {
 .btns {
     width: 100%;
     text-align: center;
+}
+
+.repeat {
+    width: 65px;
+    font-size: 0;
+    background-image: url(/assets/img/repeat.svg),linear-gradient(40deg,#ffd86f,#fc6262);
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: 32px 32px,cover;
+    background-position: 50%;
+}
+
+.inactive {
+    opacity: .5;
+}
+
+.star-error, .star-success {
+    flex-shrink: 0;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    background-size: 40px 40px;
+}
+
+.star-success {
+    background-image: url(/assets/img/star-win.svg);
+}
+
+.failure {
+    background-image: url(/assets/img/failure.jpg);
+}
+
+.success {
+    background-image: url(/assets/img/success.jpg);
 }

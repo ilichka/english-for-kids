@@ -17,7 +17,10 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Virtual Keyboard" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -45,6 +48,7 @@
       <workItem from="1586700521013" duration="7626000" />
       <workItem from="1586783762133" duration="3694000" />
       <workItem from="1586792815230" duration="7974000" />
+      <workItem from="1586856407426" duration="18518000" />
     </task>
     <servers />
   </component>
