@@ -238,6 +238,9 @@ function goBackToMain() {
     }, 3000);
     setTimeout(() => {
         defaultRemove();
+        /*document.querySelectorAll('.front').forEach(key=>{
+            key.classList.remove('front-play')
+        });*/
         document.querySelectorAll('.card-container').forEach(key=>{
             key.classList.remove('none')
         });
@@ -249,9 +252,9 @@ function goBackToMain() {
         document.querySelector('.secondary-container').classList.add('none');
         document.querySelector('.main-container').classList.remove('none');
 
-        document.querySelectorAll('.front').forEach(key => {
+       /* document.querySelectorAll('.front').forEach(key => {
             key.classList.toggle('front-play')
-        });
+        });*/
     }, 3000)
 }
 
