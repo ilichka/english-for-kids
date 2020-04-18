@@ -445,3 +445,42 @@ nav {
     width: 0;
     height: 0;
 }
+
+@media all and (max-width: 1430px) {
+    .menu {
+        left: calc(500px - 38vw);
+    }
+}
+
+@media all and (max-width: 1380px) {
+    .menu {
+        left: calc(325px - 31vw);
+    }
+}
+
+@media all and (max-width: 1100px) {
+    .menu {
+        left: calc(325px - 40vw);
+    }
+}
+
+@media all and (max-width: 840px) {
+    .menu {
+        width: 320px;
+        left: calc(325px - 46vw);
+    }
+}
+
+@media all and (max-width: 730px) {
+    .menu {
+        width: 320px;
+        left: calc(150px - 34vw);
+    }
+}
+
+@media all and (max-width: 475px) {
+    .menu {
+        width: 320px;
+        left: calc(150px - 50vw);
+    }
+}
